@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KITCHENIII · Cloud Kitchen</title>
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- GSAP & Lenis -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
@@ -27,7 +24,6 @@
     ::-webkit-scrollbar-track { background: #4C2711; }
     ::-webkit-scrollbar-thumb { background: #b8945c; border-radius: 12px; }
 
-    /* ----- page transition ----- */
     .page-transition {
       position: fixed;
       inset: 0;
@@ -39,7 +35,6 @@
     }
     .page-transition.active { opacity: 1; pointer-events: all; }
 
-    /* ----- LANDING (hero) — desktop: centered, moved up ----- */
     #hero-page {
       min-height: 100vh;
       display: flex;
@@ -73,7 +68,7 @@
         margin-top: 0;
       }
       .hero-tagline { font-size: 2.6rem; }
-      .logo-hero img { max-width: 260px; } /* ADJUST MOBILE LOGO SIZE HERE */
+      .logo-hero img { max-width: 260px; }
     }
     #hero-page .hero-bg-clear::after {
       content: '';
@@ -112,7 +107,6 @@
     }
     @keyframes softFade { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
-    /* logo image - ADJUST SIZE HERE */
     .logo-hero {
       display: flex;
       justify-content: center;
@@ -120,7 +114,7 @@
       margin-bottom: 0.3rem;
     }
     .logo-hero img {
-      max-width: 380px; /* ← INCREASE/DECREASE THIS VALUE FOR DESKTOP LOGO SIZE */
+      max-width: 380px;
       width: 100%;
       height: auto;
       display: block;
@@ -218,7 +212,6 @@
       100% { transform: translateY(-70px) scale(1.8); opacity: 0.05; }
     }
 
-    /* ----- MENU PAGE ----- */
     #menu-page {
       display: none;
       background: #1B120C;
@@ -299,12 +292,12 @@
     }
     .section-title span { color: #d4af6e; }
 
-    /* ----- MENU CARDS with PNG icons ----- */
+    /* ===== MENU GRID: 3 cards per row ===== */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .menu-card {
@@ -544,10 +537,10 @@
     }
     .footer-right a:hover { color: #d4af6e; transform: scale(1.1); }
 
-    @media (max-width: 1024px) {
-      .menu-grid { gap: 1.8rem; }
+    /* responsive */
+    @media (max-width: 992px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 768px) {
       .footer-inner {
         flex-direction: column;
@@ -580,19 +573,20 @@
       }
       .nav-links.open { display: flex; }
       .hamburger { display: block; }
-      .menu-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .menu-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .section-title { font-size: 2.6rem; }
       .contact-grid { grid-template-columns: 1fr 1fr; }
       .about-split { grid-template-columns: 1fr; }
       .about-img { height: 280px; }
       .nav-logo img { height: 36px; }
-      .logo-hero img { max-width: 260px; } /* ADJUST MOBILE LOGO SIZE HERE */
+      .logo-hero img { max-width: 260px; }
     }
     @media (max-width: 480px) {
+      .menu-grid { max-width: 100%; }
       .contact-grid { grid-template-columns: 1fr; }
       .btn-gold { padding: 0.8rem 2.4rem; }
       .hero-tagline { font-size: 2.2rem; }
-      .logo-hero img { max-width: 200px; } /* ADJUST SMALL MOBILE LOGO SIZE HERE */
+      .logo-hero img { max-width: 200px; }
       .menu-card .img-wrap { padding-bottom: 70%; }
       .order-icons a { width: 40px; height: 40px; padding: 5px; }
     }
@@ -600,13 +594,11 @@
 </head>
 <body>
 
-<!-- page transition -->
 <div class="page-transition" id="pageTransition"></div>
 
 <!-- ========== HERO ========== -->
 <div id="hero-page">
   <div class="hero-bg-clear"></div>
-
   <div class="particle" style="width:120px;height:120px;top:8%;left:6%;"></div>
   <div class="particle" style="width:80px;height:80px;bottom:12%;right:8%;animation-duration:18s;"></div>
   <div class="particle" style="width:50px;height:50px;top:30%;right:15%;animation-duration:14s;"></div>
@@ -614,7 +606,6 @@
   <div class="steam" style="bottom:30%;right:20%;animation-delay:2s;"></div>
 
   <div class="hero-content">
-    <!-- Logo image - ADJUST SIZE IN CSS (.logo-hero img) -->
     <div class="logo-hero">
       <img src="images/logo.png" alt="KITCHENIII" />
     </div>
@@ -640,66 +631,7 @@
 
   <section id="menu" class="section" style="padding-top:8rem;">
     <div class="menu-grid" id="menuGrid">
-      <!-- Card 1 -->
-      <div class="menu-card" data-delay="0">
-        <div class="img-wrap"><img src="menus/1.png" alt="Chicken Soup" /></div>
-        <div class="card-body">
-          <h3>Chicken Chinese Soup</h3>
-          <div class="price">₹120</div>
-          <p>Slow cooked chicken broth with fresh herbs.</p>
-          <div class="order-icons">
-            <a href="https://www.zomato.com" target="_blank" title="Order on Zomato">
-              <img src="icons/zomato.png" alt="Zomato" />
-            </a>
-            <a href="https://www.swiggy.com" target="_blank" title="Order on Swiggy">
-              <img src="icons/swiggy.png" alt="Swiggy" />
-            </a>
-            <a href="https://magicpin.in" target="_blank" title="Order on Magicpin">
-              <img src="icons/magicpin.png" alt="Magicpin" />
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="menu-card" data-delay="0.1">
-        <div class="img-wrap"><img src="menus/2.png" alt="Veg Soup" /></div>
-        <div class="card-body">
-          <h3>Veg Soup</h3>
-          <div class="price">₹80</div>
-          <p>Garden fresh vegetables in a rich tomato broth.</p>
-          <div class="order-icons">
-            <a href="https://www.zomato.com" target="_blank" title="Order on Zomato">
-              <img src="icons/zomato.png" alt="Zomato" />
-            </a>
-            <a href="https://www.swiggy.com" target="_blank" title="Order on Swiggy">
-              <img src="icons/swiggy.png" alt="Swiggy" />
-            </a>
-            <a href="https://magicpin.in" target="_blank" title="Order on Magicpin">
-              <img src="icons/magicpin.png" alt="Magicpin" />
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="menu-card" data-delay="0.2">
-        <div class="img-wrap"><img src="menus/3.png" alt="Crispy Peri Peri Corn" /></div>
-        <div class="card-body">
-          <h3>Crispy Peri Peri Corn</h3>
-          <div class="price">₹99</div>
-          <p>Spiced corn with peri peri &amp; lime zest.</p>
-          <div class="order-icons">
-            <a href="https://www.zomato.com" target="_blank" title="Order on Zomato">
-              <img src="icons/zomato.png" alt="Zomato" />
-            </a>
-            <a href="https://www.swiggy.com" target="_blank" title="Order on Swiggy">
-              <img src="icons/swiggy.png" alt="Swiggy" />
-            </a>
-            <a href="https://magicpin.in" target="_blank" title="Order on Magicpin">
-              <img src="icons/magicpin.png" alt="Magicpin" />
-            </a>
-          </div>
-        </div>
-      </div>
+      <!-- 25 cards will be injected by JS -->
     </div>
   </section>
 
@@ -754,17 +686,73 @@
 </div>
 
 <script>
+  // Lenis smooth scroll
   const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
-
   gsap.registerPlugin(ScrollTrigger);
 
   const transition = document.getElementById('pageTransition');
   const heroPage = document.getElementById('hero-page');
   const menuPage = document.getElementById('menu-page');
 
-  // Smooth scroll for nav links using Lenis
+  // ---- 25 menu items with custom links ----
+  const menuItems = [
+    { name: "Chicken Chinese Soup", price: "₹120", desc: "Slow cooked chicken broth with fresh herbs.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    { name: "Veg Soup", price: "₹79", desc: "Garden fresh vegetables in a rich tomato broth.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    { name: "Crispy Peri Peri Corn", price: "₹99", desc: "Spiced corn with peri peri & lime zest.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    { name: "Chicken Fry Momo", price: "₹119", desc: "Golden, crispy, and bursting with chicken flavor.", img: "menus/4.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    { name: "Chicken Crunchy Momo", price: "₹149", desc: "Golden crunchy coating with tender chicken filling.", img: "menus/5.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    { name: "French Fries", price: "₹69", desc: "Golden, crispy fries seasoned to perfection.", img: "menus/6.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Sweet Corn Soup", price: "₹95", desc: "Creamy sweet corn with a touch of pepper.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Hot & Sour Soup", price: "₹115", desc: "Spicy and tangy with vegetables.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Lemon Coriander Soup", price: "₹85", desc: "Refreshing lemon and coriander broth.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Thai Veg Soup", price: "₹125", desc: "Coconut milk with lemongrass and galangal.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Chicken Manchow Soup", price: "₹130", desc: "Thick Chinese soup with fried noodles.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Cream of Broccoli", price: "₹100", desc: "Smooth and creamy broccoli soup.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Roasted Pumpkin Soup", price: "₹105", desc: "Roasted pumpkin with a hint of nutmeg.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Chicken Clear Soup", price: "₹90", desc: "Light chicken broth with vegetables.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Veg Noodle Soup", price: "₹110", desc: "Noodles in vegetable broth.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Miso Soup", price: "₹95", desc: "Japanese miso with tofu and seaweed.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Seafood Soup", price: "₹160", desc: "Assorted seafood in a spicy broth.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Cream of Tomato", price: "₹85", desc: "Silky tomato soup with cream.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Chicken & Corn Soup", price: "₹120", desc: "Classic chicken sweet corn soup.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Spicy Veg Soup", price: "₹90", desc: "Kick of spice with mixed vegetables.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Lentil Soup", price: "₹80", desc: "Hearty lentil soup with herbs.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Chicken Ginger Soup", price: "₹125", desc: "Ginger-infused chicken soup.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Veg Clear Soup", price: "₹75", desc: "Light and clear vegetable broth.", img: "menus/2.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Cream of Mushroom", price: "₹110", desc: "Rich and creamy mushroom soup.", img: "menus/3.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" },
+    // { name: "Tomato & Basil", price: "₹95", desc: "Classic tomato basil soup.", img: "menus/1.png", zlink: "https://www.zomato.com", slink: "https://www.swiggy.com", mlink: "https://magicpin.in" }
+  ];
+
+  const grid = document.getElementById('menuGrid');
+  menuItems.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.className = 'menu-card';
+    card.setAttribute('data-delay', (index * 0.03).toFixed(2));
+    card.innerHTML = `
+      <div class="img-wrap"><img src="${item.img}" alt="${item.name}" /></div>
+      <div class="card-body">
+        <h3>${item.name}</h3>
+        <div class="price">${item.price}</div>
+        <p>${item.desc}</p>
+        <div class="order-icons">
+          <a href="${item.zlink}" target="_blank" title="Order on Zomato">
+            <img src="icons/zomato.png" alt="Zomato" />
+          </a>
+          <a href="${item.slink}" target="_blank" title="Order on Swiggy">
+            <img src="icons/swiggy.png" alt="Swiggy" />
+          </a>
+          <a href="${item.mlink}" target="_blank" title="Order on Magicpin">
+            <img src="icons/magicpin.png" alt="Magicpin" />
+          </a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // nav smooth
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -777,6 +765,7 @@
     });
   });
 
+  // order button transition
   document.getElementById('orderBtn').addEventListener('click', function(e) {
     const btn = this;
     const ripple = document.createElement('span');
@@ -797,7 +786,7 @@
       transition.classList.remove('active');
       setTimeout(() => {
         document.querySelectorAll('.menu-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('reveal'), 200 + i * 150);
+          setTimeout(() => card.classList.add('reveal'), 100 + i * 40);
         });
       }, 300);
 
@@ -817,6 +806,7 @@
     }, 700);
   });
 
+  // mouse glow
   document.addEventListener('mousemove', (e) => {
     const glow = document.querySelector('.hero-content');
     if (!glow) return;
